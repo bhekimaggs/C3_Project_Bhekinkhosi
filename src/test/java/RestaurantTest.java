@@ -72,6 +72,31 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+//<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    @Test
+    public void when_getOrderTotalPrice_is_called_with_at_least_one_item_in_the_list_it_should_return_the_correct_total_price() {
+
+        initialiseTestingParameters();
+        List<String> itemList = new ArrayList();
+        itemList.add("Sweet corn soup");   //valid item name
+        itemList.add("Vegetable lasagne"); // valid item name
+
+        int totalPrice = restaurant.getOrderTotalPrice(itemList);
+        assertEquals(totalPrice,388);
+
+    }
+
+    @Test
+    public void when_getOrderTotalPrice_is_called_with_no_item_in_the_list_it_should_return_0() {
+
+        initialiseTestingParameters();
+        List<String> itemList = new ArrayList(); //no item in the list
+        int totalPrice = restaurant.getOrderTotalPrice(itemList);
+        assertEquals(totalPrice,0);
+
+    }
+
+//<<<<<<<<<<<<<<<<<<<<<<<ORDER TOTAL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 }
