@@ -44,7 +44,18 @@ public class Restaurant {
         return null;
     }
 
+    public int getOrderTotalPrice(List <String>  itemNames) {
 
+        int totPrice=0;
+        for(String itemName: itemNames) {
+            for(Item item: menu) {
+                if(item.getName().equals(itemName))
+                    totPrice+= item.getPrice();
+            }
+        }
+
+        return totPrice;
+    }
     public void addToMenu(String name, int price) {
         Item newItem = new Item(name,price);
         menu.add(newItem);
